@@ -20,19 +20,15 @@ export const initialState: CoffeeState = {
 }
 
 export const coffeeReducer = createReducer(
-  // Supply the initial state
   initialState,
 
-  // Trigger loading All coffee
   on(loadAllCoffee, (state) => ({ ...state, status: 'loading' })),
-  // Handle successfully loaded coffee
   on(loadAllCoffeeSuccess, (state, { coffee }) => ({
     ...state,
     coffee: coffee,
     error: '',
     status: 'success',
   })),
-  // Handle coffee load failure
   on(loadAllCoffeeFailure, (state, { error }) => ({
     ...state, 
     error: error,

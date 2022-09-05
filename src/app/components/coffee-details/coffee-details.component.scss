@@ -16,6 +16,36 @@
       background-image: url("../../../assets/images/store_picture1.jpg");
       background-repeat: no-repeat;
       background-size: cover;
+      z-index: 1;
+
+      .imgForDetail {
+        width: 100%;
+        height: 100%;
+        margin-top: 330px;
+        margin-left: -100px;
+        background-image: url("../../../assets/images/coffee_pack.png");
+        background-repeat: no-repeat;
+        background-size: 170px;
+        animation: movebg 7s both linear infinite;
+        z-index: 9;
+      }
+      @keyframes movebg {
+        0% {
+          transform: translateY(0px) translateX(0px);
+        }
+        25% {
+          transform: translateY(25px) translateX(0px);
+        }
+        50% {
+          transform: translateY(50px) translateX(0px);
+        }
+        75% {
+          transform: translateY(25px) translateX(0px);
+        }
+        100% {
+          transform: translateY(0px) translateX(0px);
+        }
+      }
     }
 
     .detailSecond {

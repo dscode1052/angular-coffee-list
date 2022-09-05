@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CoffeeService } from 'src/app/services/coffee.service';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Coffee } from 'src/app/models/coffee.model';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
+import { selectAllCoffee } from 'src/app/state/coffee/coffee.selectors';
 
 @Component({
   selector: 'app-coffee-details',
@@ -11,40 +11,30 @@ import { AppState } from 'src/app/state/app.state';
   styleUrls: ['./coffee-details.component.scss']
 })
 export class CoffeeDetailsComponent implements OnInit {
-  uid: string = '';
-
-  @Input() 
-  currentCoffee: Coffee = {
-    uid: '',
-    blend_name: '',
-    origin: '',
-    variety: '',
-    notes: '',
-    intensifier: ''
-  };  
+  currentCoffee: Coffee = {};  
   
   constructor(
-    private coffeeService: CoffeeService,
     private route: ActivatedRoute,
     private router: Router,
     private store: Store<AppState>,
-  ) { }  
+  ) {}  
 
-  ngOnInit(): void {     
-    this.getCoffee(this.route.snapshot.params["uid"]); 
+  ngOnInit(): void {  
+    this.getCoffee(this.route.snapshot.params["id"]);     
   }
 
   BackToList(): void {
     this.router.navigate(['/coffeeList']);
   }
 
-  getCoffee(uid: string): void {
-    this.coffeeService.getCoffee(uid)
-      .subscribe({
-        next: (data) => {
-          this.currentCoffee = data;          
-        },
-        error: (e) => console.error(e)        
-      });
-  }    
+  getCoffee(uid: string) {    
+    this.store.select(selectAllCoffee).subscribe((items) => {
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].uid === uid.split(',')[1].replace(']', '').trim()) {
+          this.currentCoffee = items[i];          
+        }     
+      }      
+    }); 
+  }
+
 }

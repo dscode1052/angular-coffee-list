@@ -6,6 +6,12 @@
 
   .coffeeListTable {
     background-color: white;
+
+    .detailBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .coffee-list-paging {

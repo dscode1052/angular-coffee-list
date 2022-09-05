@@ -1,5 +1,4 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Coffee } from 'src/app/models/coffee.model';
 import { CoffeeService } from 'src/app/services/coffee.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -28,10 +27,6 @@ export class CoffeeListComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadAllCoffee())
-  }
-
-  setActivateCoffee(coffee: Coffee): void { 
-    this.router.navigate([`/coffeeList/${coffee.uid}`]); 
   }
 
   getArrayFromNumber(length: number) {
