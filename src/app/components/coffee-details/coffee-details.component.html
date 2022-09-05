@@ -1,0 +1,46 @@
+<div class="coffeeDetail">
+  <div class="container">
+    <div class="detailFirst card">
+      <div class="card-header d-flex justify-content-center">
+        <h5 class="card-title text-light">
+          Coffee Information
+        </h5>
+      </div>
+    </div>
+
+    <div class="detailSecond card text-center" style="max-width: 50rem;">
+      <div class="card-header">
+        {{ currentCoffee.uid }}
+      </div>
+      <div class="card-body">
+        <table class="cardTable">
+          <tr>
+            <td class="cardTable-title"><strong>BLEND_NAME: </strong></td>
+            <td class="cardTable-content">{{ currentCoffee.blend_name }}</td>
+          </tr>
+          <tr>
+            <td class="cardTable-title"><strong>ORIGIN: </strong></td>
+            <td class="cardTable-content">{{ currentCoffee.origin }}</td>
+          </tr>
+          <tr>
+            <td class="cardTable-title"><strong>VARIETY: </strong></td>
+            <td class="cardTable-content">{{ currentCoffee.variety }}</td>
+          </tr>
+          <tr>
+            <td class="cardTable-title"><strong>NOTES: </strong></td>
+            <td class="cardTable-content">{{ currentCoffee.notes }}</td>
+          </tr>
+          <tr>
+            <td class="cardTable-title"><strong>INTENSIFIER: </strong></td>
+            <td class="cardTable-content">{{ currentCoffee.intensifier }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="backBtn mt-3">
+    <a (click)="BackToList()" class="btn btn-secondary">Back to List</a>
+  </div>
+
+</div>

@@ -91,6 +91,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
+            "codeCoverage": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -103,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "5e99103a-79c9-477b-9465-b627a2315874"
   }
 }
