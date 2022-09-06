@@ -27,10 +27,10 @@ export class CoffeeDetailsComponent implements OnInit {
     this.router.navigate(['/coffeeList']);
   }
 
-  getCoffee(uid: string) {    
+  getCoffee(uid: string) {      
     this.store.select(selectAllCoffee).subscribe((items) => {
       for (let i = 0; i < items.length; i++) {
-        if (items[i].uid === uid.split(',')[1].replace(']', '').trim()) {
+        if (items[i].uid === uid) {
           this.currentCoffee = items[i];          
         }     
       }      
