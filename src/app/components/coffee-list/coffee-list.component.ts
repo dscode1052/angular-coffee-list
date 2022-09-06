@@ -1,6 +1,4 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { CoffeeService } from 'src/app/services/coffee.service';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { loadAllCoffee } from 'src/app/state/coffee/coffee.actions';
 import { selectAllCoffee } from 'src/app/state/coffee/coffee.selectors';
@@ -20,8 +18,6 @@ export class CoffeeListComponent implements OnInit {
   currentPageIndex: number = 0;
 
   constructor(
-    private coffeeService: CoffeeService,
-    private router: Router,
     private store: Store<AppState>,
   ) { }
 
